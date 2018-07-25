@@ -1,0 +1,29 @@
+{
+  "name": "violin",
+  "version": "1.0.0",
+  "description": "Violin scale tutor",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "build": "webpack --mode production",
+    "serve": "npm run watch && npm run start",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "watch": "webpack -w"
+  },
+  "author": "@petermckj",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.3",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
