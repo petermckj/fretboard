@@ -6,13 +6,13 @@ import {setupNeck} from './modules/scale';
 //setup a guitar neck with standard tuning
 const neck = setupNeck(["E","A","D","G","B","E"]);
 ReactDOM.render(
-  <FretBoard neck={neck} />,
+  <FretBoard neck={neck} rootNote="E"/>,
   document.getElementById('guitar')
 );
 
 const violin = setupNeck(["G","D","A","E"]);
 ReactDOM.render(
-  <FretBoard neck={violin} />,
+  <FretBoard neck={violin} rootNote="G" />,
   document.getElementById('violin')
 );
 

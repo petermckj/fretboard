@@ -5,9 +5,10 @@ import {notes,SCALES, calculateScale} from '../modules/scale';
 class FretBoard extends React.Component{
     constructor(props){
         super(props);
-        let scale = calculateScale("G",SCALES.MAJOR,this.props.neck);
+        let rootNote = this.props.rootNote;
+        let scale = calculateScale(rootNote,SCALES.MAJOR,this.props.neck);
         this.state = {
-            "root": "G",
+            "root": rootNote,
             "scale": scale,
             "scaleType": SCALES.MAJOR
         };
