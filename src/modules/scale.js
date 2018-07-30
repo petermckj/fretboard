@@ -25,7 +25,6 @@ const SCALES = {
 }
 const MAX_FRETS = 18;
 const DEFAULT_SCALE = "G";
-let neck = setupNeck();
 
 function reorderNotesFromRoot(root,notes){
     //find root note in notes
@@ -57,7 +56,7 @@ function isNoteInScale(note, root, pattern){
     return false;
 }
 
-function calculateScale(root,pattern){
+function calculateScale(root,pattern,neck){
     let scale = neck.map((notes)=>{
         return notes.map((note)=>{
             return isNoteInScale(note,root,pattern);
@@ -67,9 +66,9 @@ function calculateScale(root,pattern){
     return scale;
 }
 
-function setupNeck(){
+function setupNeck(notesAtNut = ["G","D","A","E"]){
     //setup neck of violin
-    let neck = [["G","D","A","E"]]; //initialise at nut
+    let neck = [notesAtNut]; //initialise at nut
     for(var i=1;i<MAX_FRETS;i++){
         //get the item at each element of the previous point on the scale
         let previous_notes = neck[i-1];
@@ -89,8 +88,8 @@ function setupNeck(){
 
 export {
     notes,
-    neck,
     SCALES,
     isNoteInScale,
-    calculateScale
+    calculateScale,
+    setupNeck
 }

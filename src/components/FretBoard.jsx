@@ -5,7 +5,7 @@ import {notes,SCALES, calculateScale} from '../modules/scale';
 class FretBoard extends React.Component{
     constructor(props){
         super(props);
-        let scale = calculateScale("G",SCALES.MAJOR);
+        let scale = calculateScale("G",SCALES.MAJOR,this.props.neck);
         this.state = {
             "root": "G",
             "scale": scale,
@@ -17,12 +17,12 @@ class FretBoard extends React.Component{
     }
     scaleChange(event){
         let root = event.target.value;
-        let scale = calculateScale(root,this.state.scaleType);
+        let scale = calculateScale(root,this.state.scaleType,this.props.neck);
         this.setState({"root": root, "scale":scale});
     }
     scaleTypeChange(event){
         let type = event.target.value;
-        let scale = calculateScale(this.state.root,SCALES[type]);
+        let scale = calculateScale(this.state.root,SCALES[type],this.props.neck);
         this.setState({ "scale":scale, "scaleType": SCALES[type]});
     }
     render(){
